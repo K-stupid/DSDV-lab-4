@@ -19,8 +19,8 @@ const yAxisGroup = chart.append("g");
 
 function rowConverter(d) {
     return {
-        name: d.province,
-        GDP: +d.GDP
+        name: d.province || d.Province,
+        GDP: +d.GDP.replace(/,/g, "").trim()
     };
 }
 
