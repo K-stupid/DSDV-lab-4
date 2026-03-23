@@ -1,0 +1,20 @@
+body {
+    font-family: Arial;
+}
+
+button, select {
+    margin: 10px;
+    padding: 5px 10px;
+}
+
+.bar {
+    fill: steelblue;
+}
+
+.bar:hover {
+    fill: orange;
+}
+
+.axis text {
+    font-size: 12px;
+}
