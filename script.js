@@ -43,8 +43,6 @@ function rowConverter(d) {
 // LOAD DATA
 d3.csv("vn-provinces-data.csv", rowConverter)
 .then(data => {
-  console.log(data);
-  
     allData = data;
 
     currentData = allData.slice(0, 15);
