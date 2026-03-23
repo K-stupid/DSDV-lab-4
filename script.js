@@ -41,7 +41,7 @@ function rowConverter(d) {
 }
 
 // LOAD DATA
-d3.csv("vn-provinces-data.csv", rowConverter)
+d3.csv("https://tungth.github.io/data/vn-provinces-data.csv", rowConverter)
 .then(data => {
     allData = data;
 
@@ -72,7 +72,7 @@ function updateChart() {
     xAxisGroup.transition().duration(1000).call(d3.axisBottom(xScale));
     yAxisGroup.transition().duration(1000).call(d3.axisLeft(yScale));
 
-    //  BARS 
+    // ===== BARS =====
     const bars = chart.selectAll("rect")
         .data(currentData, d => d.name);
 
@@ -104,7 +104,7 @@ function updateChart() {
         .attr("width", d => xScale(d.GDP))
         .attr("fill", (d, i) => d3.interpolateYlOrRd(i / currentData.length));
 
-    //  LABELS 
+    // ===== LABELS =====
     const labels = chart.selectAll("text.label")
         .data(currentData, d => d.name);
 
@@ -124,7 +124,7 @@ function updateChart() {
         .text(d => d.GDP.toFixed(2));
 }
 
-//  ADD 
+// ===== ADD =====
 d3.select("#add-btn").on("click", function () {
     if (currentData.length < allData.length) {
         currentData.push(allData[currentData.length]);
@@ -133,13 +133,13 @@ d3.select("#add-btn").on("click", function () {
     }
 });
 
-//  REMOVE 
+// ===== REMOVE =====
 d3.select("#remove-btn").on("click", function () {
     currentData.pop();
     updateChart();
 });
 
-//  SORT 
+// ===== SORT =====
 d3.select("#sort-select").on("change", function (event) {
     const criterion = event.target.value;
 
