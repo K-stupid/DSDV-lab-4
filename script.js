@@ -25,11 +25,7 @@ function rowConverter(d) {
 }
 
 d3.csv("vn-provinces-data.csv", rowConverter)
-.then(function(data) {
-    allData = data;
-    currentData = allData.slice(0, 20);
-    updateChart();
-});
+.then(data => console.log(data));
 
 function updateChart() {
 
